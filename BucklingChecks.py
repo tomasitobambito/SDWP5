@@ -81,7 +81,7 @@ def find_k(halfWaveConst, length, radius, wallThickness, poissonRatio):
     """Finds the constant k needed for shell buckling.
 
     Args:
-        halfWaveConst (num): constant lambda, to be optimised
+        halfWaveConst (num): constant lambda, to be optimised   
         length (num): Length of the tank
         radius (num): Radius of the tank
         wallThickness (num): Thickness of the tanks cylindrical wall

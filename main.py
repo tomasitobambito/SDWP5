@@ -1,4 +1,5 @@
 from BucklingChecks import euler_buckling, shell_buckling
 
-print(euler_buckling(2, 2, 2, 2))
-print(shell_buckling(2, 2, 2, 2,0.5, 2))
+pressure = float(input('Please input the pressure inside of the tank'))
+length = float(input('Please input the length of the tank'))
+radius = float(input('Please input the radius of the tank'))
