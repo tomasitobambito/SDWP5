@@ -99,3 +99,18 @@ def find_k(halfWaveConst, length, radius, wallThickness, poissonRatio):
     k += halfWaveConst
 
     return k
+
+def determine_stress(area, mass, launchAccel):
+    """Determines the stresses experienced by the cylindrical section of the fuel tanks during launch.
+
+    Args:
+        area (num): cross-sectional area of the cylinder
+        mass (num): wet mass of the spacecraft at take off
+        launchAccel (num): acceleration (in g) of the spacecraft at takeoff
+
+    Returns:
+        num: stress experienced by the cylindrical section of the fuel tanks during takeoff
+    """
+    force = mass*launchAccel*9.80665
+
+    return force/area

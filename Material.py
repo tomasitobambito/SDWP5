@@ -26,7 +26,7 @@ class MaterialManager:
 
                     self.materials.append(currentMaterial)
 
-    def write_catalouge(self, path):
+    def write_catalogue(self, path):
         with open(path, 'w') as file:
             for material in self.materials:
                 currentLine = ";".join([material.name, 
@@ -35,3 +35,15 @@ class MaterialManager:
                     str(material.density)])
                 currentLine += '\n'
                 file.write(currentLine)
+    
+    def add_material(self):
+        name = input('Please enter the name of the material: ')
+        youngsModulus = float(input('Please enter the youngs modulus of the material: '))
+        poissonRatio = float(input('Please enter the poisson ratio of the material: '))
+        density = float(input('Please enter the density of the material: '))
+
+        material = Material(name, [youngsModulus, poissonRatio, density])
+        self.materials.append(material)
+    
+    def count(self):
+        return len(self.materials)
