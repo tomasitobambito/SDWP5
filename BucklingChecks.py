@@ -91,7 +91,7 @@ def find_k(halfWaveConst, length, radius, wallThickness, poissonRatio):
         num: the constant k needed for shell buckling.
     """
 
-    # math is split into steps to make it easier to follow (and so I don't fuck up typing)
+    # math is split into steps to make it easier to follow (and so I don't mess up typing)
     k = 12/(pi**4)
     k *= (length**4)/((radius**2)*(wallThickness**2))
     k *= (1-(poissonRatio**2))
