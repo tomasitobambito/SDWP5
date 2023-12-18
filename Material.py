@@ -17,6 +17,11 @@ class MaterialManager:
         self.read_file(path)
 
     def read_file(self, path):
+        """Read material catalogue file into internal materials list.
+
+        Args:
+            path (string): path of the catalogue text file being read from
+        """
         with open(path) as file:
             for row in file:
                 if row:
@@ -26,7 +31,12 @@ class MaterialManager:
 
                     self.materials.append(currentMaterial)
 
-    def write_catalouge(self, path):
+    def write_catalogue(self, path):
+        """Write current material list to file.
+
+        Args:
+            path (string): path of the catalogue text file being written to
+        """
         with open(path, 'w') as file:
             for material in self.materials:
                 currentLine = ";".join([material.name, 
@@ -35,3 +45,17 @@ class MaterialManager:
                     str(material.density)])
                 currentLine += '\n'
                 file.write(currentLine)
+    
+    def add_material(self):
+        """Allow user to input a material to the internal catalogue.
+        """
+        name = input('Please enter the name of the material: ')
+        youngsModulus = float(input('Please enter the youngs modulus of the material: '))
+        poissonRatio = float(input('Please enter the poisson ratio of the material: '))
+        density = float(input('Please enter the density of the material: '))
+
+        material = Material(name, [youngsModulus, poissonRatio, density])
+        self.materials.append(material)
+    
+    def count(self):
+        return len(self.materials)

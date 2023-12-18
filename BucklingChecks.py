@@ -91,7 +91,7 @@ def find_k(halfWaveConst, length, radius, wallThickness, poissonRatio):
         num: the constant k needed for shell buckling.
     """
 
-    # math is split into steps to make it easier to follow (and so I don't fuck up typing)
+    # math is split into steps to make it easier to follow (and so I don't mess up typing)
     k = 12/(pi**4)
     k *= (length**4)/((radius**2)*(wallThickness**2))
     k *= (1-(poissonRatio**2))
@@ -99,3 +99,18 @@ def find_k(halfWaveConst, length, radius, wallThickness, poissonRatio):
     k += halfWaveConst
 
     return k
+
+def determine_stress(area, mass, launchAccel):
+    """Determines the stresses experienced by the cylindrical section of the fuel tanks during launch.
+
+    Args:
+        area (num): cross-sectional area of the cylinder
+        mass (num): wet mass of the spacecraft at take off
+        launchAccel (num): acceleration (in g) of the spacecraft at takeoff
+
+    Returns:
+        num: stress experienced by the cylindrical section of the fuel tanks during takeoff
+    """
+    force = mass*launchAccel*9.80665
+
+    return force/area
