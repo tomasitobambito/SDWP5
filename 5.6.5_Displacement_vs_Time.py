@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Constants
-m = 500
+m = 302.224
 k = 290888835
 frequency = 100
 forcing = 0.9*9.80665/m
